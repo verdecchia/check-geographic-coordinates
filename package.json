@@ -1,0 +1,19 @@
+{
+  "name": "check-geographic-coordinates",
+  "version": "0.0.1",
+  "description": "Simple utility to check if geographic coordinates (latitude, longitude).",
+  "keywords": [
+    "validate",
+    "validator",
+    "coordinate",
+    "check",
+    "geo",
+    "geographic",
+    "latitude",
+    "longitude"
+  ],
+  "main": "check-geographic-coordinates.js",
+  "repository": "https://github.com/verdecchia/check-geographic-coordinates.git",
+  "author": "Marco Verdecchia <marco.verdecchia@gmail.com>",
+  "license": "MIT"
+}
