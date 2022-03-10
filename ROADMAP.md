@@ -9,8 +9,14 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
 - unit tests
 - features tests
 - nodejs version compatibility
+- commonJS and Es module import
+- parse String as number.
+  - Ex.  '14.3' -> 14.3
+- jest substitute global command with a local one
 
 ### v. 2.0
 
 - typescript
-  
+- use multiple notions of latitude and longitude
+  - Ex. Latitude: 40.853294 (40° 51' 11.8584'' N)
+  - Ex. Longiture 14.305573 (14° 18' 20.0628'' E)
