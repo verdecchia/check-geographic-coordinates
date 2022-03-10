@@ -12,6 +12,18 @@ or
 yarn add check-geographic-coordinates
 ```
 
+# Tests
+
+```bash
+npm run test
+```
+
+or
+
+```bash
+yarn run test
+```
+
 # Usage
 
 ```js
