@@ -6,8 +6,23 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
 
 ### v. 1.0
 
-- unit tests
-- features tests
+- tests
+    - latitude and longitude
+      - [ ] not valid string
+      - [ ] not valid types
+
+    - latitude and longitude max/min limits
+      - [X] int
+      - [X] float
+      - [ ] intString
+      - [ ] floatString
+      
+    - latitude and longitude max/min off by 1 limits
+      - [X] int
+      - [X] float
+      - [ ] intString
+      - [ ] floatString
+    - coordinates
 - nodejs version compatibility
 - commonJS and Es module import
 - parse String as number.
