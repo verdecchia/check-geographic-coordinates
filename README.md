@@ -1,5 +1,5 @@
-# Check-geographic-coordinates
-Simple utility to check if geographic coordinate (latitute and longitude) are valid.
+# Check geographic coordinates
+Simple utility to check if geographic coordinates (latitute, longitude or both) are valid.
 
 # Install
 
