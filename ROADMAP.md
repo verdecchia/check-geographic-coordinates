@@ -7,26 +7,33 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
 ### v. 1.0
 
 - tests
-    - latitude and longitude
-      - [ ] not valid string
-      - [ ] not valid types
-
-    - latitude and longitude max/min limits
-      - [X] int
-      - [X] float
-      - [ ] intString
-      - [ ] floatString
-      
-    - latitude and longitude max/min off by 1 limits
-      - [X] int
-      - [X] float
-      - [ ] intString
-      - [ ] floatString
-    - coordinates
+  - latitude and longitude
+    - [ ] not valid string
+    - [ ] not valid types
+  - latitude and longitude max/min limits
+    - [x] int
+    - [x] float
+    - [ ] intString
+    - [ ] floatString
+  - latitude and longitude max/min off by 1 limits
+    - [x] int
+    - [x] float
+    - [ ] intString
+    - [ ] floatString
+  - coordinates max/min limits
+    - [x] int
+    - [x] float
+    - [ ] intString
+    - [ ] floatString
+  - coordinates max/min off by 1 limits
+    - [x] int
+    - [x] float
+    - [ ] intString
+    - [ ] floatString
 - nodejs version compatibility
 - commonJS and Es module import
 - parse String as number.
-  - Ex.  '14.3' -> 14.3
+  - Ex. '14.3' -> 14.3
 - jest substitute global command with a local one
 
 ### v. 2.0

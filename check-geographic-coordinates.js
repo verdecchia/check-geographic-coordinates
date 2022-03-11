@@ -8,7 +8,7 @@ const latitude = (value) => {
   return !!(isNumber(value) && value >= -90 && value <= 90);
 };
 
-const coordinates = (longitude, latitude) => {
+const coordinates = (lon, lat) => {
   return longitude(lon) && latitude(lat);
 };
 
