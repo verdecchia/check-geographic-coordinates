@@ -13,13 +13,13 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
   - latitude and longitude max/min limits
     - [x] int
     - [x] float
-    - [ ] intString
-    - [ ] floatString
+    - [x] intString
+    - [x] floatString
   - latitude and longitude max/min off by 1 limits
     - [x] int
     - [x] float
-    - [ ] intString
-    - [ ] floatString
+    - [x] intString
+    - [x] floatString
   - coordinates max/min limits
     - [x] int
     - [x] float

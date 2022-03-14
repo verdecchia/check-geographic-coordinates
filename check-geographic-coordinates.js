@@ -7,6 +7,7 @@ const longitude = (value) => {
 };
 
 const latitude = (value) => {
+  value = typeof value === "string" ? parseFloat(value) : value;
   return !!(isNumber(value) && value >= -90 && value <= 90);
 };
 
