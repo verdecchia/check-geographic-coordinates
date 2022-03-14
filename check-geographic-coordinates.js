@@ -1,6 +1,8 @@
 const isNumber = (number) => typeof number === "number";
 
 const longitude = (value) => {
+  value = typeof value === "string" ? parseFloat(value) : value;
+
   return !!(isNumber(value) && value >= -180 && value <= 180);
 };
 
