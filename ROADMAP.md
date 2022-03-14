@@ -6,7 +6,7 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
 
 ### v. 1.0
 
-- tests
+- [x] tests
   - latitude and longitude
     - [x] not valid string
     - [x] not valid types
@@ -33,12 +33,13 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
   - coordinates
     - [x] not valid string
     - [x] not valid types
-- nodejs version compatibility
-- function aliases (isLongitude, isLatidude, isCoordinate)
-- function aliases (isValidLongitude, isValidLatitude, isValidCoordinate)
-- commonJS and Es module import
-- parse String as number.
-  - Ex. '14.3' -> 14.3
+- [ ] nodejs version compatibility
+- [ ] function aliases (isLongitude, isLatidude, isCoordinate)
+- [ ] function aliases (isValidLongitude, isValidLatitude, isValidCoordinate)
+- [ ] commonJS and Es module import
+- [x] parse String as number.
+  - [x] Ex. float '14.3' -> 14.3
+  - [x] Ex. int '14' -> 14
 - jest substitute global command with a local one
 
 ### v. 2.0
