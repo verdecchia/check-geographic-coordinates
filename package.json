@@ -10,7 +10,10 @@
     "geo",
     "geographic",
     "latitude",
-    "longitude"
+    "longitude",
+    "decimal degrees",
+    "gps",
+    "DD"
   ],
   "main": "check-geographic-coordinates.js",
   "scripts": {
