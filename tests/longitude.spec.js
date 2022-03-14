@@ -48,3 +48,20 @@ describe("Test wrong longitude MIN amd MAX limits off by 1", () => {
     expect(checkGeo.longitude(value)).toBe(false);
   });
 });
+
+describe("test wrong longitude, invalid parameter (null, undefined, wrong string, etc)", () => {
+  each([
+    ["invalid parameter, null", null],
+    ["invalid parameter, undefined", undefined],
+    ["invalid parameter, boolean true", true],
+    ["invalid parameter, boolean false", false],
+    ["invalid parameter, object", {}],
+    ["invalid parameter, array", []],
+    ["invalid parameter, string 'invalid'", "invalid"],
+    ["invalid parameter, string 'true'", "true"],
+    ["invalid parameter, string 'false'", "false"],
+    ["invalid parameter, string '' empty", ""],
+  ]).test("check longitude %p to be false", (p, value) => {
+    expect(checkGeo.longitude(value)).toBe(false);
+  });
+});

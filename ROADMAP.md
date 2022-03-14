@@ -8,8 +8,8 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
 
 - tests
   - latitude and longitude
-    - [ ] not valid string
-    - [ ] not valid types
+    - [x] not valid string
+    - [x] not valid types
   - latitude and longitude max/min limits
     - [x] int
     - [x] float
@@ -31,8 +31,8 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
     - [x] intString
     - [x] floatString
   - coordinates
-    - [] not valid string
-    - [] not valid types
+    - [x] not valid string
+    - [x] not valid types
 - nodejs version compatibility
 - function aliases (isLongitude, isLatidude, isCoordinate)
 - function aliases (isValidLongitude, isValidLatitude, isValidCoordinate)
