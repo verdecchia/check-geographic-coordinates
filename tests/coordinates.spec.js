@@ -6,6 +6,7 @@ const {
   LONGITUDE_MAX,
   LATITUDE_MIN,
   LATITUDE_MAX,
+  WRONG_PARAMETER_ARRAY,
 } = require("./constants");
 
 describe("Test right coordinates limits int/float", () => {
@@ -296,53 +297,13 @@ describe("Test wrong coordinates limits intString/floatString with latitude off 
   });
 });
 
-describe("test wrong longitude, invalid parameter (null, undefined, wrong string, etc)", () => {
-  each([
-    ["invalid parameter, null", null],
-    ["invalid parameter, undefined", undefined],
-    ["invalid parameter, boolean true", true],
-    ["invalid parameter, boolean false", false],
-    ["invalid parameter, object", {}],
-    ["invalid parameter, array", []],
-    ["invalid parameter, string 'invalid'", "invalid"],
-    ["invalid parameter, string 'true'", "true"],
-    ["invalid parameter, string 'false'", "false"],
-    ["invalid parameter, string '' empty", ""],
-  ]).test("check longitude %p to be false", (p, value) => {
-    expect(checkGeo.coordinates(value, 1)).toBe(false);
-  });
-});
-
-describe("test wrong latitude, invalid parameter (null, undefined, wrong string, etc)", () => {
-  each([
-    ["invalid parameter, null", null],
-    ["invalid parameter, undefined", undefined],
-    ["invalid parameter, boolean true", true],
-    ["invalid parameter, boolean false", false],
-    ["invalid parameter, object", {}],
-    ["invalid parameter, array", []],
-    ["invalid parameter, string 'invalid'", "invalid"],
-    ["invalid parameter, string 'true'", "true"],
-    ["invalid parameter, string 'false'", "false"],
-    ["invalid parameter, string '' empty", ""],
-  ]).test("check longitude %p to be false", (p, value) => {
-    expect(checkGeo.coordinates(1, value)).toBe(false);
-  });
-});
-
-describe("test wrong longitude and latitude, invalid parameter (null, undefined, wrong string, etc)", () => {
-  each([
-    ["invalid parameter, null", null],
-    ["invalid parameter, undefined", undefined],
-    ["invalid parameter, boolean true", true],
-    ["invalid parameter, boolean false", false],
-    ["invalid parameter, object", {}],
-    ["invalid parameter, array", []],
-    ["invalid parameter, string 'invalid'", "invalid"],
-    ["invalid parameter, string 'true'", "true"],
-    ["invalid parameter, string 'false'", "false"],
-    ["invalid parameter, string '' empty", ""],
-  ]).test("check longitude %p to be false", (p, value) => {
-    expect(checkGeo.coordinates(value, value)).toBe(false);
-  });
+describe("test wrong 'latitude', 'longiture', 'longitude and latitude', invalid parameter (null, undefined, wrong string, etc)", () => {
+  each(WRONG_PARAMETER_ARRAY).test(
+    "check longitude %p to be false",
+    (p, value) => {
+      expect(checkGeo.coordinates(value, value)).toBe(false);
+      expect(checkGeo.coordinates(LONGITUDE_MAX, value)).toBe(false);
+      expect(checkGeo.coordinates(value, LATITUDE_MAX)).toBe(false);
+    }
+  );
 });
