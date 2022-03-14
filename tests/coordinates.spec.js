@@ -7,6 +7,7 @@ const {
   LATITUDE_MIN,
   LATITUDE_MAX,
   WRONG_PARAMETER_ARRAY,
+  CITIES,
 } = require("./constants");
 
 describe("Test right coordinates limits int/float", () => {
@@ -297,9 +298,9 @@ describe("Test wrong coordinates limits intString/floatString with latitude off 
   });
 });
 
-describe("test wrong 'latitude', 'longiture', 'longitude and latitude', invalid parameter (null, undefined, wrong string, etc)", () => {
+describe("test wrong 'latitude', 'longitude', 'longitude and latitude', invalid parameter (null, undefined, wrong string, etc)", () => {
   each(WRONG_PARAMETER_ARRAY).test(
-    "check longitude %p to be false",
+    "check latitude, longitude, 'latitude and longitude' lo %p to be false",
     (p, value) => {
       expect(checkGeo.coordinates(value, value)).toBe(false);
       expect(checkGeo.coordinates(LONGITUDE_MAX, value)).toBe(false);
@@ -307,3 +308,11 @@ describe("test wrong 'latitude', 'longiture', 'longitude and latitude', invalid 
     }
   );
 });
+
+describe("test right cities, latitude and longitude", () => {
+  each(CITIES).test("check %p coordinates to be true", (p, value) => {
+    expect(checkGeo.coordinates(value.longitude, value.latitude)).toBe(true);
+  });
+});
+
+
