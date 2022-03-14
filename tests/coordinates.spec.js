@@ -1,3 +1,4 @@
+const each = require("jest-each").default;
 const checkGeo = require("../check-geographic-coordinates");
 
 const {
@@ -7,148 +8,290 @@ const {
   LATITUDE_MAX,
 } = require("./constants");
 
-test("Test right coordinates limits (longitude MAX, latitude MAX)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MAX.int, LATITUDE_MAX.int)).toBe(true);
-  expect(checkGeo.coordinates(LONGITUDE_MAX.float, LATITUDE_MAX.float)).toBe(
-    true
-  );
-  expect(checkGeo.coordinates(LONGITUDE_MAX.int, LATITUDE_MAX.float)).toBe(
-    true
-  );
-  expect(checkGeo.coordinates(LONGITUDE_MAX.float, LATITUDE_MAX.int)).toBe(
-    true
-  );
+describe("Test right coordinates limits int/float", () => {
+  each([
+    [
+      "longitude MAX (int), latitude MAX (int)",
+      LONGITUDE_MAX.int,
+      LATITUDE_MAX.int,
+    ],
+    [
+      "longitude MAX (float), latitude MAX (float)",
+      LONGITUDE_MAX.float,
+      LATITUDE_MAX.float,
+    ],
+    [
+      "longitude MAX (int), latitude MAX (float)",
+      LONGITUDE_MAX.int,
+      LATITUDE_MAX.float,
+    ],
+    [
+      "longitude MAX (float), latitude MAX (int)",
+      LONGITUDE_MAX.float,
+      LATITUDE_MAX.int,
+    ],
+
+    [
+      "longitude MIN (int), latitude MIN (int)",
+      LONGITUDE_MIN.int,
+      LATITUDE_MIN.int,
+    ],
+    [
+      "longitude MIN (float), latitude MIN (float)",
+      LONGITUDE_MIN.float,
+      LATITUDE_MIN.float,
+    ],
+    [
+      "longitude MIN (int), latitude MIN(float)",
+      LONGITUDE_MIN.int,
+      LATITUDE_MIN.float,
+    ],
+    [
+      "longitude MIN (float), latitude MIN (int)",
+      LONGITUDE_MIN.float,
+      LATITUDE_MIN.int,
+    ],
+  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+    expect(checkGeo.coordinates(longitude, latitude)).toBe(true);
+  });
 });
 
-test("Test right coordinates limits (longitude MIN, latitude MIN)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MIN.int, LATITUDE_MIN.int)).toBe(true);
-  expect(checkGeo.coordinates(LONGITUDE_MIN.float, LATITUDE_MIN.float)).toBe(
-    true
-  );
-  expect(checkGeo.coordinates(LONGITUDE_MIN.int, LATITUDE_MIN.float)).toBe(
-    true
-  );
-  expect(checkGeo.coordinates(LONGITUDE_MIN.float, LATITUDE_MIN.int)).toBe(
-    true
-  );
+describe("Test right coordinates limits intString/floatString", () => {
+  each([
+    [
+      "longitude MAX (intString), latitude MAX (intString)",
+      `${LONGITUDE_MAX.int}`,
+      LATITUDE_MAX.int,
+    ],
+    [
+      "longitude MAX (floatString), latitude MAX (floatString)",
+      LONGITUDE_MAX.float,
+      LATITUDE_MAX.float,
+    ],
+    [
+      "longitude MAX (intString), latitude MAX (floatString)",
+      LONGITUDE_MAX.int,
+      LATITUDE_MAX.float,
+    ],
+    [
+      "longitude MAX (floatString), latitude MAX (intString)",
+      LONGITUDE_MAX.float,
+      LATITUDE_MAX.int,
+    ],
+
+    [
+      "longitude MIN (intString), latitude MIN (intString)",
+      LONGITUDE_MIN.int,
+      LATITUDE_MIN.int,
+    ],
+    [
+      "longitude MIN (floatString), latitude MIN (floatString)",
+      LONGITUDE_MIN.float,
+      LATITUDE_MIN.float,
+    ],
+    [
+      "longitude MIN (int), latitude MIN(float)",
+      LONGITUDE_MIN.int,
+      LATITUDE_MIN.float,
+    ],
+    [
+      "longitude MIN (float), latitude MIN (int)",
+      LONGITUDE_MIN.float,
+      LATITUDE_MIN.int,
+    ],
+  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+    expect(checkGeo.coordinates(longitude, latitude)).toBe(true);
+  });
 });
 
-test("Test coordinates limits (longitude MAX off by +1, latitude right MAX)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MAX.int + 1, LATITUDE_MAX.int)).toBe(
-    false
-  );
-  expect(
-    checkGeo.coordinates(LONGITUDE_MAX.float + 1, LATITUDE_MAX.float)
-  ).toBe(false);
-  expect(checkGeo.coordinates(LONGITUDE_MAX.int + 1, LATITUDE_MAX.float)).toBe(
-    false
-  );
-  expect(checkGeo.coordinates(LONGITUDE_MAX.float + 1, LATITUDE_MAX.int)).toBe(
-    false
-  );
+describe("Test wrong coordinates limits int/float with longitude off by 0.1", () => {
+  each([
+    [
+      "longitude MAX (int + 0.1), latitude MAX (int)",
+      LONGITUDE_MAX.int + 0.1,
+      LATITUDE_MAX.int,
+    ],
+    [
+      "longitude MAX (float + 0.1), latitude MAX (float)",
+      LONGITUDE_MAX.float + 0.1,
+      LATITUDE_MAX.float,
+    ],
+    [
+      "longitude MAX (int + 0.1), latitude MAX (float)",
+      LONGITUDE_MAX.int + 0.1,
+      LATITUDE_MAX.float,
+    ],
+    [
+      "longitude MAX (float + 0.1), latitude MAX (int)",
+      LONGITUDE_MAX.float + 0.1,
+      LATITUDE_MAX.int,
+    ],
+
+    [
+      "longitude MIN (int -0.1), latitude MIN (int)",
+      LONGITUDE_MIN.int - 0.1,
+      LATITUDE_MIN.int,
+    ],
+    [
+      "longitude MIN (float -0.1), latitude MIN (float)",
+      LONGITUDE_MIN.float - 0.1,
+      LATITUDE_MIN.float,
+    ],
+    [
+      "longitude MIN (int - 0.1), latitude MIN(float)",
+      LONGITUDE_MIN.int - 0.1,
+      LATITUDE_MIN.float,
+    ],
+    [
+      "longitude MIN (float - 0.1), latitude MIN (int)",
+      LONGITUDE_MIN.float - 0.1,
+      LATITUDE_MIN.int,
+    ],
+  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+    expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
+  });
 });
 
-test("Test coordinates limits (longitude MAX off by +0.1, latitude right MAX)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MAX.int + 0.1, LATITUDE_MAX.int)).toBe(
-    false
-  );
-  expect(
-    checkGeo.coordinates(LONGITUDE_MAX.float + 0.1, LATITUDE_MAX.float)
-  ).toBe(false);
-  expect(
-    checkGeo.coordinates(LONGITUDE_MAX.int + 0.1, LATITUDE_MAX.float)
-  ).toBe(false);
-  expect(
-    checkGeo.coordinates(LONGITUDE_MAX.float + 0.1, LATITUDE_MAX.int)
-  ).toBe(false);
+describe("Test wrong coordinates limits int/float with latitude off by 0.1", () => {
+  each([
+    [
+      "longitude MAX (int), latitude MAX (int + 0.1)",
+      LONGITUDE_MAX.int,
+      LATITUDE_MAX.int + 0.1,
+    ],
+    [
+      "longitude MAX (float), latitude MAX (float + 0.1)",
+      LONGITUDE_MAX.float,
+      LATITUDE_MAX.float + 0.1,
+    ],
+    [
+      "longitude MAX (int), latitude MAX (float + 0.1)",
+      LONGITUDE_MAX.int,
+      LATITUDE_MAX.float + 0.1,
+    ],
+    [
+      "longitude MAX (float), latitude MAX (int + 0.1)",
+      LONGITUDE_MAX.float,
+      LATITUDE_MAX.int + 0.1,
+    ],
+
+    [
+      "longitude MIN (int), latitude MIN (int - 0.1)",
+      LONGITUDE_MIN.int,
+      LATITUDE_MIN.int - 0.1,
+    ],
+    [
+      "longitude MIN (float), latitude MIN (float - 0.1)",
+      LONGITUDE_MIN.float,
+      LATITUDE_MIN.float - 0.1,
+    ],
+    [
+      "longitude MIN (int), latitude MIN(float - 0.1)",
+      LONGITUDE_MIN.int,
+      LATITUDE_MIN.float - 0.1,
+    ],
+    [
+      "longitude MIN (float), latitude MIN (int - 0.1)",
+      LONGITUDE_MIN.float,
+      LATITUDE_MIN.int - 0.1,
+    ],
+  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+    expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
+  });
 });
 
-test("Test coordinates limits (longitude MAX, latitude right MAX off by +1)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MAX.int, LATITUDE_MAX.int + 1)).toBe(
-    false
-  );
-  expect(
-    checkGeo.coordinates(LONGITUDE_MAX.float, LATITUDE_MAX.float + 1)
-  ).toBe(false);
-  expect(checkGeo.coordinates(LONGITUDE_MAX.int, LATITUDE_MAX.float + 1)).toBe(
-    false
-  );
-  expect(checkGeo.coordinates(LONGITUDE_MAX.float, LATITUDE_MAX.int + 1)).toBe(
-    false
-  );
+describe("Test wrong coordinates limits intString/floatString with longitude off by 0.1", () => {
+  each([
+    [
+      "longitude MAX (int + 0.1), latitude MAX (int)",
+      `${LONGITUDE_MAX.int + 0.1}`,
+      `${LATITUDE_MAX.int}`,
+    ],
+    [
+      "longitude MAX (float + 0.1), latitude MAX (float)",
+      `${LONGITUDE_MAX.float + 0.1}`,
+      `${LATITUDE_MAX.float}`,
+    ],
+    [
+      "longitude MAX (int + 0.1), latitude MAX (float)",
+      `${LONGITUDE_MAX.int + 0.1}`,
+      `${LATITUDE_MAX.float}`,
+    ],
+    [
+      "longitude MAX (float + 0.1), latitude MAX (int)",
+      `${LONGITUDE_MAX.float + 0.1}`,
+      `${LATITUDE_MAX.int}`,
+    ],
+
+    [
+      "longitude MIN (int -0.1), latitude MIN (int)",
+      `${LONGITUDE_MIN.int - 0.1}`,
+      `${LATITUDE_MIN.int}`,
+    ],
+    [
+      "longitude MIN (float -0.1), latitude MIN (float)",
+      `${LONGITUDE_MIN.float - 0.1}`,
+      `${LATITUDE_MIN.float}`,
+    ],
+    [
+      "longitude MIN (int - 0.1), latitude MIN(float)",
+      `${LONGITUDE_MIN.int - 0.1}`,
+      `${LATITUDE_MIN.float}`,
+    ],
+    [
+      "longitude MIN (float - 0.1), latitude MIN (int)",
+      `${LONGITUDE_MIN.float - 0.1}`,
+      `${LATITUDE_MIN.int}`,
+    ],
+  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+    expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
+  });
 });
 
-test("Test coordinates limits (longitude MAX, latitude right MAX off by +0.1)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MAX.int, LATITUDE_MAX.int + 0.1)).toBe(
-    false
-  );
-  expect(
-    checkGeo.coordinates(LONGITUDE_MAX.float, LATITUDE_MAX.float + 0.1)
-  ).toBe(false);
-  expect(
-    checkGeo.coordinates(LONGITUDE_MAX.int, LATITUDE_MAX.float + 0.1)
-  ).toBe(false);
-  expect(
-    checkGeo.coordinates(LONGITUDE_MAX.float, LATITUDE_MAX.int + 0.1)
-  ).toBe(false);
-});
+describe("Test wrong coordinates limits intString/floatString with latitude off by 0.1", () => {
+  each([
+    [
+      "longitude MAX (int), latitude MAX (int + 0.1)",
+      `${LONGITUDE_MAX.int}`,
+      `${LATITUDE_MAX.int + 0.1}`,
+    ],
+    [
+      "longitude MAX (float), latitude MAX (float + 0.1)",
+      `${LONGITUDE_MAX.float}`,
+      `${LATITUDE_MAX.float + 0.1}`,
+    ],
+    [
+      "longitude MAX (int), latitude MAX (float + 0.1)",
+      `${LONGITUDE_MAX.int}`,
+      `${LATITUDE_MAX.float + 0.1}`,
+    ],
+    [
+      "longitude MAX (float), latitude MAX (int + 0.1)",
+      `${LONGITUDE_MAX.float}`,
+      `${LATITUDE_MAX.int + 0.1}`,
+    ],
 
-test("Test coordinates limits (longitude MIN off by -1, latitude MIN)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MIN.int + -1, LATITUDE_MIN.int)).toBe(
-    false
-  );
-  expect(
-    checkGeo.coordinates(LONGITUDE_MIN.float + -1, LATITUDE_MIN.float)
-  ).toBe(false);
-  expect(checkGeo.coordinates(LONGITUDE_MIN.int + -1, LATITUDE_MIN.float)).toBe(
-    false
-  );
-  expect(checkGeo.coordinates(LONGITUDE_MIN.float + -1, LATITUDE_MIN.int)).toBe(
-    false
-  );
-});
-
-test("Test coordinates limits (longitude MIN off by -0.1, latitude MIN)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MIN.int + -0.1, LATITUDE_MIN.int)).toBe(
-    false
-  );
-  expect(
-    checkGeo.coordinates(LONGITUDE_MIN.float + -0.1, LATITUDE_MIN.float)
-  ).toBe(false);
-  expect(
-    checkGeo.coordinates(LONGITUDE_MIN.int + -0.1, LATITUDE_MIN.float)
-  ).toBe(false);
-  expect(
-    checkGeo.coordinates(LONGITUDE_MIN.float + -0.1, LATITUDE_MIN.int)
-  ).toBe(false);
-});
-
-test("Test coordinates limits (longitude MIN, latitude MIN off by -1)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MIN.int, LATITUDE_MIN.int + -1)).toBe(
-    false
-  );
-  expect(
-    checkGeo.coordinates(LONGITUDE_MIN.float, LATITUDE_MIN.float + -1)
-  ).toBe(false);
-  expect(checkGeo.coordinates(LONGITUDE_MIN.int, LATITUDE_MIN.float + -1)).toBe(
-    false
-  );
-  expect(checkGeo.coordinates(LONGITUDE_MIN.float, LATITUDE_MIN.int + -1)).toBe(
-    false
-  );
-});
-
-test("Test coordinates limits (longitude MIN, latitude MIN off by -0.1)", () => {
-  expect(checkGeo.coordinates(LONGITUDE_MIN.int, LATITUDE_MIN.int + -0.1)).toBe(
-    false
-  );
-  expect(
-    checkGeo.coordinates(LONGITUDE_MIN.float, LATITUDE_MIN.float + -0.1)
-  ).toBe(false);
-  expect(
-    checkGeo.coordinates(LONGITUDE_MIN.int, LATITUDE_MIN.float + -0.1)
-  ).toBe(false);
-  expect(
-    checkGeo.coordinates(LONGITUDE_MIN.float, LATITUDE_MIN.int + -0.1)
-  ).toBe(false);
+    [
+      "longitude MIN (int), latitude MIN (int - 0.1)",
+      `${LONGITUDE_MIN.int}`,
+      `${LATITUDE_MIN.int - 0.1}`,
+    ],
+    [
+      "longitude MIN (float), latitude MIN (float - 0.1)",
+      `${LONGITUDE_MIN.float}`,
+      `${LATITUDE_MIN.float - 0.1}`,
+    ],
+    [
+      "longitude MIN (int), latitude MIN(float - 0.1)",
+      `${LONGITUDE_MIN.int}`,
+      `${LATITUDE_MIN.float - 0.1}`,
+    ],
+    [
+      "longitude MIN (float), latitude MIN (int - 0.1)",
+      `${LONGITUDE_MIN.float}`,
+      `${LATITUDE_MIN.int - 0.1}`,
+    ],
+  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+    expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
+  });
 });
