@@ -23,13 +23,16 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
   - coordinates max/min limits
     - [x] int
     - [x] float
-    - [ ] intString
-    - [ ] floatString
+    - [x] intString
+    - [x] floatString
   - coordinates max/min off by 1 limits
     - [x] int
     - [x] float
-    - [ ] intString
-    - [ ] floatString
+    - [x] intString
+    - [x] floatString
+  - coordinates
+    - [] not valid string
+    - [] not valid types
 - nodejs version compatibility
 - function aliases (isLongitude, isLatidude, isCoordinate)
 - function aliases (isValidLongitude, isValidLatitude, isValidCoordinate)
