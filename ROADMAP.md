@@ -31,6 +31,8 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
     - [ ] intString
     - [ ] floatString
 - nodejs version compatibility
+- function aliases (isLongitude, isLatidude, isCoordinate)
+- function aliases (isValidLongitude, isValidLatitude, isValidCoordinate)
 - commonJS and Es module import
 - parse String as number.
   - Ex. '14.3' -> 14.3
