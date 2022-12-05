@@ -1,6 +1,6 @@
 # Check geographic coordinates
 
-Simple utility to check if geographic coordinates (latitute, longitude or both) are valid.
+Simple utility to check if geographic coordinates (latitute, longitude or both) are valid. ([Node.js](https://nodejs.org) >= 14)
 
 # Install
 
