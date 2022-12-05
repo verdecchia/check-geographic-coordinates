@@ -1,6 +1,6 @@
 {
   "name": "check-geographic-coordinates",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Simple utility to check if geographic coordinates (latitude, longitude).",
   "keywords": [
     "validate",
