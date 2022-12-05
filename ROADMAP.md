@@ -33,7 +33,7 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
   - coordinates
     - [x] not valid string
     - [x] not valid types
-- [ ] nodejs version compatibility
+- [x] nodejs version compatibility
 - [ ] function aliases (isLongitude, isLatidude, isCoordinate)
 - [ ] function aliases (isValidLongitude, isValidLatitude, isValidCoordinate)
 - [ ] commonJS and Es module import
