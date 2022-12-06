@@ -51,3 +51,8 @@ yarn test
 # License
 
 MIT
+
+# Feedback
+
+[https://github.com/verdecchia](https://github.com/verdecchia)
+
