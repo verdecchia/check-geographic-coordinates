@@ -2,6 +2,7 @@
 
 Simple utility to check if geographic coordinates (latitute, longitude or both) are valid. ([Node.js](https://nodejs.org) >= 14)
 
+[![npm version](https://badge.fury.io/js/check-geographic-coordinates.svg)](https://badge.fury.io/js/check-geographic-coordinates)
 # Install
 
 ```
