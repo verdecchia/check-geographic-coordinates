@@ -50,7 +50,7 @@ yarn test
 
 # License
 
-MIT
+[MIT](./LICENSE)
 
 # Feedback
 
