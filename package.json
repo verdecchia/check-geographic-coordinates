@@ -21,7 +21,7 @@
   "main": "check-geographic-coordinates.js",
   "types": "check-geographic-coordinates.d.ts",
   "scripts": {
-    "clean": "yarn del-cli check-geographic-coordinates.*",
+    "clean": "yarn del-cli check-geographic-coordinates.js check-geographic-coordinates.mjs check-geographic-coordinates.d.ts",
     "mjs": "yarn tsc -m 'es2015' && mv check-geographic-coordinates.js check-geographic-coordinates.mjs",
     "cjs": "yarn tsc",
     "build": "yarn clean && yarn mjs && yarn cjs",

@@ -1,10 +1,7 @@
 /** @type {import('jest').Config} */
 const config = {
   verbose: false,
-  testMatch: ["**/__tests__/**/*.(spec|test).[jt]s?(x)"],
-  transform: {
-    "^.+\\.js?$": require.resolve("babel-jest"),
-  },
+  testMatch: ["**/tests/**/*.(spec|test).[jt]s?(x)"],
 };
 
 module.exports = config;
