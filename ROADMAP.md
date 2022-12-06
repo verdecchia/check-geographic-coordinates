@@ -49,3 +49,4 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
 - use multiple notions of latitude and longitude
   - Ex. Latitude: 40.853294 (40° 51' 11.8584'' N)
   - Ex. Longiture 14.305573 (14° 18' 20.0628'' E)
+- typescript declarations provided by '@types/check-geographic-coordinates' 
