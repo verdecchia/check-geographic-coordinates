@@ -1,7 +1,7 @@
+const checkGeo = require("../../check-geographic-coordinates");
+
 describe("test readme example", () => {
   test("Example with numbers", () => {
-    const checkGeo = require("../../check-geographic-coordinates");
-
     const isRightLng = checkGeo.longitude(180.0); // true
     const isRightLat = checkGeo.latitude(90.0); // true
 
@@ -13,8 +13,6 @@ describe("test readme example", () => {
   });
 
   test("Example with Rome", () => {
-    const checkGeo = require("../../check-geographic-coordinates");
-
     const ROME = { latitude: 41.902783, longitude: 12.496366 };
 
     const isRightLat = checkGeo.latitude(ROME.latitude); // true

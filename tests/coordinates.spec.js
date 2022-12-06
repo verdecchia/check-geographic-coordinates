@@ -1,5 +1,5 @@
 const each = require("jest-each").default;
-const checkGeo = require("../../check-geographic-coordinates");
+const checkGeo = require("../check-geographic-coordinates");
 
 const {
   LONGITUDE_MIN,
