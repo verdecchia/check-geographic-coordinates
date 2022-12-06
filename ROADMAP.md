@@ -36,11 +36,11 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
 - [x] nodejs version compatibility
 - [ ] function aliases (isLongitude, isLatidude, isCoordinate)
 - [ ] function aliases (isValidLongitude, isValidLatitude, isValidCoordinate)
-- [ ] commonJS and Es module import
+- [x] commonJS and Es6 module import
 - [x] parse String as number.
   - [x] Ex. float '14.3' -> 14.3
   - [x] Ex. int '14' -> 14
-- jest substitute global command with a local one
+- [x] jest substitute global command with a local one
 
 ### v. 2.0
 
