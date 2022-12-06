@@ -41,7 +41,6 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
   - [x] Ex. float '14.3' -> 14.3
   - [x] Ex. int '14' -> 14
 - [x] jest substitute global command with a local one
-
 ### v. 2.0
 
 - typescript
@@ -50,3 +49,5 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
   - Ex. Latitude: 40.853294 (40° 51' 11.8584'' N)
   - Ex. Longiture 14.305573 (14° 18' 20.0628'' E)
 - typescript declarations provided by '@types/check-geographic-coordinates' 
+- eslint / prettier
+- github ci (eslint and test)
