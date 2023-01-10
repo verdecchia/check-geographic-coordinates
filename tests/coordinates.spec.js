@@ -1,4 +1,5 @@
-const checkGeo = require("../check-geographic-coordinates");
+const checkGeo = require("../dist");
+
 
 const {
   LONGITUDE_MIN,

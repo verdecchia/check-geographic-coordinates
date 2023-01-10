@@ -1,6 +1,6 @@
 {
   "name": "check-geographic-coordinates",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple utility (js and ts) to check if geographic coordinates (latitude, longitude) are valid.",
   "keywords": [
     "validate",
@@ -25,14 +25,18 @@
   "engines": {
     "node": ">=14"
   },
-  "main": "check-geographic-coordinates.js",
-  "types": "check-geographic-coordinates.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "clean": "yarn del-cli check-geographic-coordinates.js check-geographic-coordinates.mjs check-geographic-coordinates.d.ts",
-    "mjs": "yarn tsc -m 'es2015' && mv check-geographic-coordinates.js check-geographic-coordinates.mjs",
+    "clean": "yarn del-cli dist/**/*",
+    "mjs": "yarn tsc -m 'es2015' && mv dist/index.js dist/index.mjs && mv dist/index.d.ts dist/index.d.mts",
     "cjs": "yarn tsc",
     "build": "yarn clean && yarn mjs && yarn cjs",
-    "test": "yarn build && yarn jest"
+    "test": "yarn build && yarn jest",
+    "publish": "yarn build && yarn publish"
   },
   "repository": "https://github.com/verdecchia/check-geographic-coordinates.git",
   "author": "Marco Verdecchia <marco.verdecchia@gmail.com>",

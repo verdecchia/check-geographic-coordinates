@@ -1,4 +1,4 @@
-const checkGeo = require("../../check-geographic-coordinates");
+const checkGeo = require("../dist");
 
 describe("test readme example", () => {
   test("Example with numbers", () => {

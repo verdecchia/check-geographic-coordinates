@@ -1,9 +1,0 @@
-export declare const longitude: (value: string | number) => boolean;
-export declare const latitude: (value: string | number) => boolean;
-export declare const coordinates: (lon: string | number, lat: string | number) => boolean;
-export declare const isLatitude: (value: string | number) => boolean;
-export declare const isLongitude: (value: string | number) => boolean;
-export declare const areCoordinates: (lon: string | number, lat: string | number) => boolean;
-export declare const isValidLatitude: (value: string | number) => boolean;
-export declare const isValidLongitude: (value: string | number) => boolean;
-export declare const areValidCoordinates: (lon: string | number, lat: string | number) => boolean;
