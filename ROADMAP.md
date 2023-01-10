@@ -51,3 +51,13 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
 - typescript declarations provided by '@types/check-geographic-coordinates' 
 - eslint / prettier
 - github ci (eslint and test)
+- project examples
+  - node
+    - typescript
+    - javascript 
+      - es6
+      - commonjs
+  - browser
+    - reactjs
+    - vue
+    - svelte
