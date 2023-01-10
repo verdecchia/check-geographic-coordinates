@@ -1,4 +1,3 @@
-const each = require("jest-each").default;
 const checkGeo = require("../check-geographic-coordinates");
 
 const {
@@ -11,7 +10,7 @@ const {
 } = require("./constants");
 
 describe("Test right coordinates limits int/float", () => {
-  each([
+  test.each([
     [
       "longitude MAX (int), latitude MAX (int)",
       LONGITUDE_MAX.int,
@@ -53,7 +52,7 @@ describe("Test right coordinates limits int/float", () => {
       LONGITUDE_MIN.float,
       LATITUDE_MIN.int,
     ],
-  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+  ])("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(true);
     expect(checkGeo.areCoordinates(longitude, latitude)).toBe(true);
     expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(true);
@@ -61,7 +60,7 @@ describe("Test right coordinates limits int/float", () => {
 });
 
 describe("Test right coordinates limits intString/floatString", () => {
-  each([
+  test.each([
     [
       "longitude MAX (intString), latitude MAX (intString)",
       `${LONGITUDE_MAX.int}`,
@@ -103,7 +102,7 @@ describe("Test right coordinates limits intString/floatString", () => {
       LONGITUDE_MIN.float,
       LATITUDE_MIN.int,
     ],
-  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+  ])("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(true);
     expect(checkGeo.areCoordinates(longitude, latitude)).toBe(true);
     expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(true);
@@ -111,7 +110,7 @@ describe("Test right coordinates limits intString/floatString", () => {
 });
 
 describe("Test wrong coordinates limits int/float with longitude off by 0.1", () => {
-  each([
+  test.each([
     [
       "longitude MAX (int + 0.1), latitude MAX (int)",
       LONGITUDE_MAX.int + 0.1,
@@ -153,7 +152,7 @@ describe("Test wrong coordinates limits int/float with longitude off by 0.1", ()
       LONGITUDE_MIN.float - 0.1,
       LATITUDE_MIN.int,
     ],
-  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+  ])("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
     expect(checkGeo.areCoordinates(longitude, latitude)).toBe(false);
     expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(false);
@@ -161,7 +160,7 @@ describe("Test wrong coordinates limits int/float with longitude off by 0.1", ()
 });
 
 describe("Test wrong coordinates limits int/float with latitude off by 0.1", () => {
-  each([
+  test.each([
     [
       "longitude MAX (int), latitude MAX (int + 0.1)",
       LONGITUDE_MAX.int,
@@ -203,7 +202,7 @@ describe("Test wrong coordinates limits int/float with latitude off by 0.1", () 
       LONGITUDE_MIN.float,
       LATITUDE_MIN.int - 0.1,
     ],
-  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+  ])("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
     expect(checkGeo.areCoordinates(longitude, latitude)).toBe(false);
     expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(false);
@@ -211,7 +210,7 @@ describe("Test wrong coordinates limits int/float with latitude off by 0.1", () 
 });
 
 describe("Test wrong coordinates limits intString/floatString with longitude off by 0.1", () => {
-  each([
+  test.each([
     [
       "longitude MAX (int + 0.1), latitude MAX (int)",
       `${LONGITUDE_MAX.int + 0.1}`,
@@ -253,7 +252,7 @@ describe("Test wrong coordinates limits intString/floatString with longitude off
       `${LONGITUDE_MIN.float - 0.1}`,
       `${LATITUDE_MIN.int}`,
     ],
-  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+  ])("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
     expect(checkGeo.areCoordinates(longitude, latitude)).toBe(false);
     expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(false);
@@ -261,7 +260,7 @@ describe("Test wrong coordinates limits intString/floatString with longitude off
 });
 
 describe("Test wrong coordinates limits intString/floatString with latitude off by 0.1", () => {
-  each([
+  test.each([
     [
       "longitude MAX (int), latitude MAX (int + 0.1)",
       `${LONGITUDE_MAX.int}`,
@@ -303,7 +302,7 @@ describe("Test wrong coordinates limits intString/floatString with latitude off 
       `${LONGITUDE_MIN.float}`,
       `${LATITUDE_MIN.int - 0.1}`,
     ],
-  ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
+  ])("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
     expect(checkGeo.areCoordinates(longitude, latitude)).toBe(false);
     expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(false);
@@ -311,7 +310,7 @@ describe("Test wrong coordinates limits intString/floatString with latitude off 
 });
 
 describe("test wrong 'latitude', 'longitude', 'longitude and latitude', invalid parameter (null, undefined, wrong string, etc)", () => {
-  each(WRONG_PARAMETER_ARRAY).test(
+  test.each(WRONG_PARAMETER_ARRAY)(
     "check latitude, longitude, 'latitude and longitude' lo %p to be false",
     (p, value) => {
       expect(checkGeo.coordinates(value, value)).toBe(false);
@@ -330,9 +329,11 @@ describe("test wrong 'latitude', 'longitude', 'longitude and latitude', invalid 
 });
 
 describe("test right cities, latitude and longitude", () => {
-  each(CITIES).test("check %p coordinates to be true", (p, value) => {
+  test.each(CITIES)("check %p coordinates to be true", (p, value) => {
     expect(checkGeo.coordinates(value.longitude, value.latitude)).toBe(true);
     expect(checkGeo.areCoordinates(value.longitude, value.latitude)).toBe(true);
-    expect(checkGeo.areValidCoordinates(value.longitude, value.latitude)).toBe(true);
+    expect(checkGeo.areValidCoordinates(value.longitude, value.latitude)).toBe(
+      true
+    );
   });
 });
