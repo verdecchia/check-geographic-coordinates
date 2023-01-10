@@ -1,7 +1,7 @@
 {
   "name": "check-geographic-coordinates",
-  "version": "1.0.3",
-  "description": "Simple utility (js and ts) to check if geographic coordinates (latitude, longitude) are valid.",
+  "version": "1.0.4",
+  "description": "Verify if geographic coordinates are valid 🌎 (latitude, longitude, both).",
   "keywords": [
     "validate",
     "validator",
@@ -15,12 +15,21 @@
     "decimal degrees",
     "gps",
     "DD",
-    "Geographic coordinate system",
+    "Geographic Coordinate System",
+    "GCS",
     "es6",
     "javascript",
     "typescript",
     "js",
-    "ts"
+    "ts",
+    "is-valid-coordinates",
+    "is-valid-latitude",
+    "is-valid-longitude",
+    "is-valid-coords",
+    "is-valid-geo-coordinates",
+    "is-valid-geo-latitude",
+    "is-valid-geo-longitude",
+    "is-valid-coord"
   ],
   "engines": {
     "node": ">=14"
@@ -35,8 +44,7 @@
     "mjs": "yarn tsc -m 'es2015' && mv dist/index.js dist/index.mjs && mv dist/index.d.ts dist/index.d.mts",
     "cjs": "yarn tsc",
     "build": "yarn clean && yarn mjs && yarn cjs",
-    "test": "yarn build && yarn jest",
-    "publish": "yarn build && yarn publish"
+    "test": "yarn build && yarn jest"
   },
   "repository": "https://github.com/verdecchia/check-geographic-coordinates.git",
   "author": "Marco Verdecchia <marco.verdecchia@gmail.com>",
