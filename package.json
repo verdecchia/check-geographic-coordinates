@@ -1,11 +1,12 @@
 {
   "name": "check-geographic-coordinates",
-  "version": "0.0.10",
-  "description": "Simple utility to check if geographic coordinates (latitude, longitude).",
+  "version": "1.0.0",
+  "description": "Simple utility (js and ts) to check if geographic coordinates (latitude, longitude) are valid.",
   "keywords": [
     "validate",
     "validator",
-    "coordinate",
+    "validation",
+    "coordinates",
     "check",
     "geo",
     "geographic",
@@ -13,7 +14,13 @@
     "longitude",
     "decimal degrees",
     "gps",
-    "DD"
+    "DD",
+    "Geographic coordinate system",
+    "es6",
+    "javascript",
+    "typescript",
+    "js",
+    "ts"
   ],
   "engines": {
     "node": ">=14"
@@ -31,10 +38,10 @@
   "author": "Marco Verdecchia <marco.verdecchia@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^29.2.4",
+    "@types/jest": "^29.2.5",
     "del-cli": "^5.0.0",
     "jest": "^29.3.1",
     "jest-each": "^29.3.1",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.4"
   }
 }

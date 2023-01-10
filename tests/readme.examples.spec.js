@@ -13,14 +13,18 @@ describe("test readme example", () => {
   });
 
   test("Example with Rome", () => {
-    const ROME = { latitude: 41.902783, longitude: 12.496366 };
+    //ROME
+    const lon = 12.496366;
+    const lat = 41.902783;
 
-    const isRightLat = checkGeo.latitude(ROME.latitude); // true
-    const isRightLng = checkGeo.longitude(ROME.longitude); //true
-    const areRightCoordinates = checkGeo.coordinates(
-      ROME.longitude,
-      ROME.latitude
-    ); //true
+    //longitude, return true
+    const isRightLng = checkGeo.longitude(lon); // also: isLongitude, isValidLongitude
+
+    //latitude, return true
+    const isRightLat = checkGeo.latitude(lat); // also isLatitude, isValidLatitude
+
+    //cordinate, return true
+    const areRightCoordinates = checkGeo.coordinates(lon, lat); // also areCoordinates, areValidCoordinates
 
     expect(isRightLat).toBe(true);
     expect(isRightLng).toBe(true);

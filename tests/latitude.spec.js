@@ -20,6 +20,8 @@ describe("Test right latitude MIN and MAX limits", () => {
     ["MAX intFloat", `${LATITUDE_MAX.float}`],
   ]).test("check latitude %p, to be true", (p, value) => {
     expect(checkGeo.latitude(value)).toBe(true);
+    expect(checkGeo.isLatitude(value)).toBe(true);
+    expect(checkGeo.isValidLatitude(value)).toBe(true);
   });
 });
 
@@ -50,6 +52,8 @@ describe("Test wrong latitude MIN amd MAX limits off by 1", () => {
     ["MIN floatString +0.1", `${LATITUDE_MAX.float + 1}`],
   ]).test("check latitude %p, to be false", (p, value) => {
     expect(checkGeo.latitude(value)).toBe(false);
+    expect(checkGeo.isLatitude(value)).toBe(false);
+    expect(checkGeo.isValidLatitude(value)).toBe(false);
   });
 });
 
@@ -58,6 +62,8 @@ describe("test wrong latitude, invalid parameter (null, undefined, wrong string,
     "check longitude %p to be false",
     (p, value) => {
       expect(checkGeo.latitude(value)).toBe(false);
+      expect(checkGeo.isLatitude(value)).toBe(false);
+      expect(checkGeo.isValidLatitude(value)).toBe(false);
     }
   );
 });

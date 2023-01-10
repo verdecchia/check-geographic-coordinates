@@ -1,11 +1,14 @@
 # Check geographic coordinates
 
-Simple utility to check if geographic coordinates (latitute, longitude or both) are valid. ([Node.js](https://nodejs.org) >= 14)
+Verifies if longitude and latitude (or both) are valid.
 
+![node-current (tag)](https://img.shields.io/node/v/check-geographic-coordinates/latest)
 [![npm version](https://badge.fury.io/js/check-geographic-coordinates.svg)](https://badge.fury.io/js/check-geographic-coordinates)
+![npm type definitions](https://img.shields.io/npm/types/check-geographic-coordinates)
+![NPM](https://img.shields.io/npm/l/check-geographic-coordinates)
 # Install
 
-```
+```sh
 npm install check-geographic-coordinates
 //or
 yarn add check-geographic-coordinates
@@ -16,29 +19,39 @@ yarn add check-geographic-coordinates
 ```js
 const checkGeo = require("check-geographic-coordinates");
 
-checkGeo.longitude(180.0); // true
-checkGeo.latitude(90.0); // true
-checkGeo.coordinates(180, 90); // true
+//ROME
+const lon = 12.496366;
+const lat = 41.902783;
 
-const ROME = { latitude: 41.902783, longitude: 12.496366 };
-checkGeo.latitude(ROME.latitude); // true
-checkGeo.longitude(ROME.longitude); //true
-checkGeo.coordinates(ROME.longitude, ROME.latitude); //true
+//longitude, return true
+checkGeo.longitude(lon); // also: isLongitude, isValidLongitude
+
+//latitude, return true
+checkGeo.latitude(lat); // also isLatitude, isValidLatitude
+
+//cordinate, return true
+checkGeo.coordinates(lon, lat); // also areCoordinates, areValidCoordinates
 ```
+
+
 
 # Usage with typescript
 
 ```ts
 import { latitude, longitude, coordinates } from "check-geographic-coordinates";
 
-longitude(180.0); // true
-latitude(90.0); // true
-coordinates(180, 90); // true
+//ROME
+const lon = 12.496366;
+const lat = 41.902783;
 
-const ROME = { latitude: 41.902783, longitude: 12.496366 };
-latitude(ROME.latitude); // true
-longitude(ROME.longitude); //true
-coordinates(ROME.longitude, ROME.latitude); //true
+//longitude, return true
+longitude(lon); // also: isLongitude, isValidLongitude
+
+//latitude, return true
+latitude(lat); // also isLatitude, isValidLatitude
+
+//cordinate, return true
+coordinates(lon, lat); // also areCoordinates, areValidCoordinates
 ```
 
 # Tests
@@ -48,10 +61,6 @@ npm run test
 //or
 yarn test
 ```
-
-# License
-
-[MIT](./LICENSE)
 
 # Feedback
 

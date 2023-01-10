@@ -34,8 +34,8 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
     - [x] not valid string
     - [x] not valid types
 - [x] nodejs version compatibility
-- [ ] function aliases (isLongitude, isLatidude, isCoordinate)
-- [ ] function aliases (isValidLongitude, isValidLatitude, isValidCoordinate)
+- [x] function aliases (isLongitude, isLatidude, areCoordinates)
+- [x] function aliases (isValidLongitude, isValidLatitude, areValidCoordinates)
 - [x] commonJS and Es6 module import
 - [x] parse String as number.
   - [x] Ex. float '14.3' -> 14.3

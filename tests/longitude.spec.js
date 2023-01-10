@@ -20,6 +20,8 @@ describe("Test right longitude MIN and MAX limits", () => {
     ["MAX intFloat", `${LONGITUDE_MAX.float}`],
   ]).test("check longitude %p, to be true", (p, value) => {
     expect(checkGeo.longitude(value)).toBe(true);
+    expect(checkGeo.isLongitude(value)).toBe(true);
+    expect(checkGeo.isValidLongitude(value)).toBe(true);
   });
 });
 
@@ -35,6 +37,8 @@ describe("Test wrong longitude MIN amd MAX limits off by 0.1", () => {
     ["MIN floatString +0.1", `${LONGITUDE_MAX.float + 0.1}`],
   ]).test("check longitude %p, to be false", (p, value) => {
     expect(checkGeo.longitude(value)).toBe(false);
+    expect(checkGeo.isLongitude(value)).toBe(false);
+    expect(checkGeo.isValidLongitude(value)).toBe(false);
   });
 });
 
@@ -50,6 +54,8 @@ describe("Test wrong longitude MIN amd MAX limits off by 1", () => {
     ["MIN floatString +0.1", `${LONGITUDE_MAX.float + 1}`],
   ]).test("check longitude %p, to be false", (p, value) => {
     expect(checkGeo.longitude(value)).toBe(false);
+    expect(checkGeo.isLongitude(value)).toBe(false);
+    expect(checkGeo.isValidLongitude(value)).toBe(false);
   });
 });
 
@@ -58,6 +64,8 @@ describe("test wrong longitude, invalid parameter (null, undefined, wrong string
     "check longitude %p to be false",
     (p, value) => {
       expect(checkGeo.longitude(value)).toBe(false);
+      expect(checkGeo.isLongitude(value)).toBe(false);
+      expect(checkGeo.isValidLongitude(value)).toBe(false);
     }
   );
 });

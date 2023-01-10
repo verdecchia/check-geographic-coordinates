@@ -55,6 +55,8 @@ describe("Test right coordinates limits int/float", () => {
     ],
   ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(true);
+    expect(checkGeo.areCoordinates(longitude, latitude)).toBe(true);
+    expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(true);
   });
 });
 
@@ -103,6 +105,8 @@ describe("Test right coordinates limits intString/floatString", () => {
     ],
   ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(true);
+    expect(checkGeo.areCoordinates(longitude, latitude)).toBe(true);
+    expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(true);
   });
 });
 
@@ -151,6 +155,8 @@ describe("Test wrong coordinates limits int/float with longitude off by 0.1", ()
     ],
   ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
+    expect(checkGeo.areCoordinates(longitude, latitude)).toBe(false);
+    expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(false);
   });
 });
 
@@ -199,6 +205,8 @@ describe("Test wrong coordinates limits int/float with latitude off by 0.1", () 
     ],
   ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
+    expect(checkGeo.areCoordinates(longitude, latitude)).toBe(false);
+    expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(false);
   });
 });
 
@@ -247,6 +255,8 @@ describe("Test wrong coordinates limits intString/floatString with longitude off
     ],
   ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
+    expect(checkGeo.areCoordinates(longitude, latitude)).toBe(false);
+    expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(false);
   });
 });
 
@@ -295,6 +305,8 @@ describe("Test wrong coordinates limits intString/floatString with latitude off 
     ],
   ]).test("check coordinates %p, to be true", (p, longitude, latitude) => {
     expect(checkGeo.coordinates(longitude, latitude)).toBe(false);
+    expect(checkGeo.areCoordinates(longitude, latitude)).toBe(false);
+    expect(checkGeo.areValidCoordinates(longitude, latitude)).toBe(false);
   });
 });
 
@@ -303,8 +315,16 @@ describe("test wrong 'latitude', 'longitude', 'longitude and latitude', invalid 
     "check latitude, longitude, 'latitude and longitude' lo %p to be false",
     (p, value) => {
       expect(checkGeo.coordinates(value, value)).toBe(false);
+      expect(checkGeo.areCoordinates(value, value)).toBe(false);
+      expect(checkGeo.areValidCoordinates(value, value)).toBe(false);
+
       expect(checkGeo.coordinates(LONGITUDE_MAX, value)).toBe(false);
+      expect(checkGeo.areCoordinates(LONGITUDE_MAX, value)).toBe(false);
+      expect(checkGeo.areValidCoordinates(LONGITUDE_MAX, value)).toBe(false);
+
       expect(checkGeo.coordinates(value, LATITUDE_MAX)).toBe(false);
+      expect(checkGeo.areCoordinates(value, LATITUDE_MAX)).toBe(false);
+      expect(checkGeo.areValidCoordinates(value, LATITUDE_MAX)).toBe(false);
     }
   );
 });
@@ -312,7 +332,7 @@ describe("test wrong 'latitude', 'longitude', 'longitude and latitude', invalid 
 describe("test right cities, latitude and longitude", () => {
   each(CITIES).test("check %p coordinates to be true", (p, value) => {
     expect(checkGeo.coordinates(value.longitude, value.latitude)).toBe(true);
+    expect(checkGeo.areCoordinates(value.longitude, value.latitude)).toBe(true);
+    expect(checkGeo.areValidCoordinates(value.longitude, value.latitude)).toBe(true);
   });
 });
-
-
