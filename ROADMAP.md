@@ -50,7 +50,7 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
   - Ex. Longiture 14.305573 (14° 18' 20.0628'' E)
 - typescript declarations provided by '@types/check-geographic-coordinates' 
 - eslint / prettier
-- github ci (eslint and test)
+- github ci (eslint, test/code coverage)
 - project examples
   - node
     - typescript
@@ -61,3 +61,11 @@ This document defines a high level roadmap for 'Check Geographic Coordinates' de
     - reactjs
     - vue
     - svelte
+  - new aliases
+    - isValidCoordinates, isCoordinates, isValidCoords, areValidCoords
+  - function coordinates new parameters:
+    - array [12.496366, 41.902783]
+    - string "12.496366, 41.902783"
+    - object 
+      - {longitude: 12.496366, latitude: 41.902783}
+      - {longitude: "12.496366", latitude: "41.902783"}
