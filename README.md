@@ -1,6 +1,6 @@
 # Check geographic coordinates
 
-Verifies if geo coordinates are valid. 🌎 (longitude, latitude, and both).
+Verifies if geo coordinates are valid. 🌎 (longitude, latitude, both).
 
 ![node-current (tag)](https://img.shields.io/node/v/check-geographic-coordinates/latest)
 [![npm version](https://badge.fury.io/js/check-geographic-coordinates.svg)](https://badge.fury.io/js/check-geographic-coordinates)
