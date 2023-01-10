@@ -1,6 +1,6 @@
 {
   "name": "check-geographic-coordinates",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple utility (js and ts) to check if geographic coordinates (latitude, longitude) are valid.",
   "keywords": [
     "validate",
@@ -26,7 +26,7 @@
     "node": ">=14"
   },
   "main": "dist/index.js",
-  "types": "dist/types.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
